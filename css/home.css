@@ -1,0 +1,50 @@
+body{
+    background-color: #242224 ;
+    color: green;
+    text-align: center;
+}
+.card{
+    background-color: black;
+}
+header{
+    max-width: 500px;
+    margin: auto;
+}
+header img{
+    height: 100px;
+}
+.c-body{
+    margin: auto;
+}
+
+.c-body button{
+    width: 120px;
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+.footer-2{
+    margin: auto;
+    max-width: 500px;
+    margin-top: 1px;
+    width: 100%;
+    padding: 10px;
+    max-height: 150px;
+    font-size: 2em;
+    background-color: black;
+}
+.card{
+    max-width: 500px;
+    margin: auto;
+    margin-top: 1px;
+}
+.todreward{
+    display: none;
+    margin-bottom: 20px;
+    width: 100%;
+}
+.wureward{
+    display: none;
+    margin-bottom: 20px;
+    width: 100%;
+}

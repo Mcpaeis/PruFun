@@ -1,0 +1,6 @@
+{
+    "name": "sixtusdakurah/truthordare",
+    "require": {
+        "twilio/sdk": "^6.7"
+    }
+}

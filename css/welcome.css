@@ -1,0 +1,94 @@
+body{
+    background-color: #242224 ;
+    color: white;
+    text-align: center;
+}
+.hidden-background{
+    margin-top: 0%;
+}
+.login-form{
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.truth-dare-switcher{
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 50px;;
+}
+.btn-1{
+    width: 100px;
+    height: 100px;
+    font-size: 25px;
+}
+
+.display-board-player-1{
+    min-height: 100px;
+    background-color: green;
+}
+
+.display-board-player-2{
+    min-height: 100px;
+    background-color: greenyellow;
+    padding: 10px;
+}
+.display-board{
+    margin-left: 10px;
+}
+.display-overview{
+    display: none;
+}
+.btn-overview{
+    display: none;
+}
+header{
+    text-align: center;
+}
+
+.form-group-1, .form-group-2, .form-group-3{
+    display: none;
+}
+
+.welcome{
+    font-size: 1.5em;
+    margin-top: 10%;
+}
+.username{
+    color: green;
+}
+
+.header{
+    background: #ededed;
+    padding: 10px;
+    margin: -10px -10px 8px -10px;
+    text-align: center;
+    color: red;
+    border-bottom: 1px solid #ddd;
+}
+.home-btn{
+    height: 45px;
+    width: 45px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 23px;
+    border: 1px solid #444;
+    background: #222;
+}
+.home-btn .hb-square{
+    background: none;
+    width: 23px;
+    height: 23px;
+    margin: 10px;
+    border-radius: 4px;
+    border: 1px solid #444;
+}
+
+.table thead tr th, .table tbody tr td {
+    border: none;
+}

@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!-- Responsive -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <title>Truth | Dare</title>
+        <!-- Stylesheets -->
+        <!-- Add Bootstrap CSS -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <!-- Custom stylesheets -->
+        <style>
+            body{
+                background-color: black;
+                color: white;
+                padding-top: 10px;
+            }
+            .login-form{
+                margin-top: 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            }
+            .truth-dare-switcher{
+                margin-top: 50px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                margin-bottom: 50px;;
+            }
+            .btn-1{
+                width: 100px;
+                height: 100px;
+                font-size: 25px;
+            }
+
+            .display-board-player-1{
+                min-height: 100px;
+                background-color: green;
+            }
+
+            .display-board-player-2{
+                min-height: 100px;
+                background-color: greenyellow;
+                padding: 10px;
+            }
+            .display-board{
+                margin-left: 10px;
+            }
+            .display-overview{
+                display: none;
+            }
+            .btn-overview{
+                display: none;
+            }
+            header{
+                text-align: center;
+            }
+
+            .form-group-1, .form-group-2, .form-group-3{
+                display: none;
+            }
+
+            .welcome{
+                font-size: 1.2em;
+            }
+            /* chat box **/
+            .casing{
+                overflow-y: scroll;
+                max-height: 600px;
+                min-height: 500px;
+                border: 1px solid #000;
+                margin: auto;
+                max-width: 900px;
+                min-width: 700px;
+                padding: 20px;
+                background: #333 linear-gradient(65deg, #333 60%, #444 60%, #333 100%);
+                border-radius: 20px;
+                box-shadow: 2px 2px 1px #444, 3px 3px 1px #555, 4px 4px 0px #666;
+            }
+            .window {
+                border: 1px solid #000;
+                border-radius: 10px;
+                background: #fff;
+                width: 100%;
+                height: calc(100% - 50px);
+                margin: auto;
+                padding: 10px;
+                box-sizing: border-box;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .header{
+                background: #ededed;
+                padding: 10px;
+                margin: -10px -10px 8px -10px;
+                text-align: center;
+                color: red;
+                border-bottom: 1px solid #ddd;
+            }
+            .home-btn{
+                height: 45px;
+                width: 45px;
+                margin-top: 10px;
+                margin-left: auto;
+                margin-right: auto;
+                border-radius: 23px;
+                border: 1px solid #444;
+                background: #222;
+            }
+            .home-btn .hb-square{
+                background: none;
+                width: 23px;
+                height: 23px;
+                margin: 10px;
+                border-radius: 4px;
+                border: 1px solid #444;
+            }
+
+            .chat{
+                background: blue;
+                border-radius: 20px;
+                display: inline-block;
+                padding: 10px;
+                color: #fff;
+                font-weight: lighter;
+                font-size: 0.5em;
+                font-weight: bold;
+                box-shadow: 1px 1px 2px rgba(0,0,0,.3);
+                margin: 5px;
+                position: relative;
+            }
+            .chat1{
+                background:red;
+                border-radius: 20px;
+                display: inline-block;
+                padding: 10px;
+                color: #fff;
+                font-weight: lighter;
+                font-size: 0.5em;
+                font-weight: bold;
+                box-shadow: 1px 1px 2px rgba(0,0,0,.3);
+                margin: 5px;
+                position: relative;
+            }
+            .chat.u1{
+                float: left;
+                clear: both;
+                border-top-left-radius: 0px;
+                font-size: 1.5em;
+            }
+            .chat1.u1{
+                float: left;
+                clear: both;
+                border-top-left-radius: 0px;
+                font-size: 1.5em;
+            }
+            .chat.u1:before{
+                content: "";
+                width: 0px;
+                height: 0px;
+                display: block;
+                border-left: 5px solid transparent;
+                border-right: 5px solid blue;
+                border-top: 5px solid blue;
+                border-bottom: 5px solid transparent;
+                position: absolute;
+                top: 0px;
+                left: -10px;
+            }
+            .chat1.u1:before{
+                content: "";
+                width: 0px;
+                height: 0px;
+                display: block;
+                border-left: 5px solid transparent;
+                border-right: 5px solid red;
+                border-top: 5px solid red;
+                border-bottom: 5px solid transparent;
+                position: absolute;
+                top: 0px;
+                left: -10px;
+            }
+
+            .chat.u2{
+                font-size: 1.5em;
+                float: right;
+                clear: both;
+                border-top-right-radius: 0px;
+            }
+
+            .chat1.u2{
+                font-size: 1.5em;
+                float: right;
+                clear: both;
+                border-top-right-radius: 0px;
+            }
+            .chat.u2:before{
+                content: "";
+                width: 0px;
+                height: 0px;
+                display: block;
+                border-left: 5px solid blue;
+                border-right: 5px solid transparent;
+                border-top: 5px solid blue;
+                border-bottom: 5px solid transparent;
+                position: absolute;
+                top: 0px;
+                right: -10px;
+            }
+
+            .chat1.u2:before{
+                content: "";
+                width: 0px;
+                height: 0px;
+                display: block;
+                border-left: 5px solid red;
+                border-right: 5px solid transparent;
+                border-top: 5px solid red;
+                border-bottom: 5px solid transparent;
+                position: absolute;
+                top: 0px;
+                right: -10px;
+            }
+
+            .new-chat{
+                position: absolute;
+                bottom: 0px;
+                width: 100%;
+                background: #ededed;
+                height: 40px;
+                left: 0px;
+                border-top: 1px solid #ddd;
+            }
+            .new-chat input{
+                outline: none;
+                padding: 10px;
+                box-sizing: border-box;
+                font-size: 18px;
+                width: 250px;
+                height: 40px;
+                border: none;
+                display: inline-block;
+                color: #999;
+                font-weight: 100;
+                background: #ddd;
+            }
+            .new-chat button{
+                width: 40px;
+                height: 30px;
+                padding: 0;
+                display: inline-block;
+                border: none;
+                color: #00D025;
+                background: none;
+                position: relative;
+                top: -3px;
+                outline: none;
+                cursor: pointer;
+            }
+            .new-chat button:active{
+                color: #555;
+            }
+            .tble {
+                text-align: center;
+                border: none;
+                margin: auto;
+            }
+            .btn-response{
+                float: rights;
+            }
+            .response-txt{
+                height: 50px;
+                min-width: 400px;
+            }
+            .table thead tr th, .table tbody tr td {
+                border: none;
+            }
+
+        </style>
+    </head>
+    <body>
+       <header>
+            <div class="welcome">Welcome to <span style="font-size: 2em; color: green;">Truth</span> or <span style="font-size: 2em; color: red;"> Dare!</span> We will make this quick and fun!</div> <br /><br />
+        </header>
+
+        <section class="login-form">           
+            <form>
+                <div class="form-group form-group-1">
+                    <label for="">What name will you like to play with?</label>
+                  <input type="text" class="form-control" id="txtUsername" aria-describedby="emailHelp" placeholder="Username" maxlength="7"><br />
+                  <button type="button" class="btn btn-primary btn-next">Next</button>
+                </div>
+                <div class="form-group form-group-3"></div> <br />
+
+                <div class="form-group form-group-2" id="">
+                  <label for="">Whom are you playing with?</label>
+                  <input type="number" class="form-control" id="txtPhone" placeholder="Enter Friend's  Phone" maxlength="10"><br />
+                  <button type="submit" id = "register-login" class="btn btn-primary btn-submit">Start Game</button>
+                </div>
+              </form>
+        </section>
+
+        <section class="display-overview">
+            <div class="display-board row">
+                
+                <div class="casing">
+                    <div class="window">
+                        <div class="header">Truth or Dare!</div>
+                        <div class="chats">
+                            <!--<span class="u1 chat">Hey sam, whats up?</span>
+                            <span class="u2 chat">nothing here how 'bout u?</span>-->
+                        </div>
+                
+                    </div>
+                    <!--<div class="home-btn">
+                        <div class="hb-square"></div>
+                    </div>-->
+                </div>
+
+            </div>
+        </section> <br />
+
+        <section>
+
+            
+        </section>
+        
+        <table class="table tble">
+            <tr>
+                <td>
+                    <input type="text" class="response-txt" placeholder="Type response">
+                    <button class="btn btn-success btn-lg btnn-response" type="button">Send</button>
+                
+                </td>
+            </tr>
+        </table>
+
+        <section class="btn-overview">
+            <div class="truth-dare-switcher row">
+                <div class="col col-sm-3"><button type="button" class="btn btn-primary btn-1 truth">Truth</button></div>
+                <div class="col col-sm-2"><button type="button" class="btn btn-dark">Or</button> </div>
+                <div class="col col-sm-3"><button type="button" class="btn btn-danger btn-1 dare">Dare</button></div>
+            </div>
+        </section>
+
+    </body>
+
+    <!-- Add jquery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <!-- Add colapse pluginrequired by bootstrap-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.collapsible/1.2/jquery.collapsible.js" integrity="sha256-gKCJr6X85dQFAP2d6nFp3amYVmjRUsYuv6y14KiAAVM=" crossorigin="anonymous"></script>
+    <!-- ADD Bootstrap js-->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <!-- Load ably libraries-->
+    <script src="//cdn.ably.io/lib/ably.min-1.js"></script>
+
+   
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.js" integrity="sha256-56zsTlMwzGRtLC4t51alLh5cKYvi0hnbhEXQTVU/zZQ=" crossorigin="anonymous"></script>
+    
+
+
+    <script>
+
+        /// Check if the user is already logged in:
+
+        var storedUsername = Cookies.get('username');
+
+        function welcomeCallback() {
+            setTimeout(function() {
+                $( ".form-group-1").css("display", "block")
+            }, 1500 );
+        };
+
+        var getUrlParameter = function getUrlParameter(sParam) {
+            var sPageURL = window.location.search.substring(1),
+                sURLVariables = sPageURL.split('&'),
+                sParameterName,
+                i;
+
+            for (i = 0; i < sURLVariables.length; i++) {
+                sParameterName = sURLVariables[i].split('=');
+
+                if (sParameterName[0] === sParam) {
+                    return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+                }
+            }
+        };
+
+        inviteeUsername = getUrlParameter("join");
+        console.log(inviteeUsername);
+        //invitedPhone = $.urlParam("uid");
+        var isInvitee = false;
+
+        if(inviteeUsername){
+            isInvitee = true;
+            Cookies.set("username", inviteeUsername, { expires: 0.12});
+            //Cookie.set("invitedPhone", invitedPhone);
+            $(".login-form").css("display", "none");
+            $(".welcome").css("display", "none");
+            $(".display-overview").css("display", "block");
+            $(".btn-overview").css("display", "block");
+
+            var channelNameT = Cookies.get("username") + "newTruth";
+            console.log(channelNameT);
+            var channelNameD = Cookies.get("username") + "newDare";
+        }
+        else if (!storedUsername){
+            // variable is not set
+            var txtUserName;
+            var txtPhoneNumber
+            $('.welcome').effect( "slide", 3000,  welcomeCallback);
+
+            /// Listen to the button next click event
+            $(".btn-next").click(function(e){
+                e.preventDefault();
+
+                txtUserName = $("#txtUsername").val();
+
+                //var txtPhoneNumber = $("#txtPhone").val();
+                //console.log(txtUserName); console.log(txtPhoneNumber);
+
+                if ( txtUserName.length < 3){
+                    $.toast({
+                        text: 'Username must be at least 3 characters',
+                        allowToastClose: false,
+                        textAlign: 'center',
+                        textColor: 'red'
+                    })
+                }else{
+                    // append welcome
+                    $(".form-group-3").append("Welcome, "+ txtUserName +"!");
+                    $(".form-group-3").css("display", "block");
+                    $(".form-group-1").css("display", "none");
+                    $(".form-group-2").css("display", "block");
+
+                }
+            });
+
+            $(".btn-submit").click(function(e){
+                e.preventDefault();
+    
+                txtPhoneNumber = $("#txtPhone").val();
+
+                if(txtPhoneNumber.length !=10 ){
+                    $.toast({
+                        text: 'Incorrect phone number',
+                        allowToastClose: false,
+                        textAlign: 'center',
+                        textColor: 'red'
+                    })
+                }else{
+                    txtPhoneNumberl = '+1'+txtPhoneNumber;
+                    console.log(txtPhoneNumber);
+                    /// Send the text message
+                    request  = $.ajax({
+                        url: "/truthordare/messages.php",
+                        type: "post",
+                        data: {'txtPhoneNumber': txtPhoneNumberl,  'txtUsername': txtUserName}
+                    });
+
+                    request.done(function(response, textStatus, jqXHR){
+                        console.log(response);
+                    });
+
+                    request.fail(function(response, textStatus, jqXHR){
+                        console.log(response);
+                    });
+
+                    Cookies.set('username', txtUserName, { expires: 365 });
+                    console.log(txtUserName);
+                    Cookies.set('phonenumber', txtPhoneNumber, { expires: 365 });
+                    console.log(txtPhoneNumber);
+                    $(".login-form").css("display", "none");
+                    $("header").css("display", "none");
+                    $(".display-overview").css("display", "block");
+                    $(".btn-overview").css("display", "block");
+                    //$(".tble").css("display", "");
+
+                    var channelNameT = Cookies.get("username") + "newTruth";
+                    console.log(channelNameT);
+                    var channelNameD = Cookies.get("username") + "newDare";
+                }
+
+
+            });
+
+
+        }else{
+            console.log(storedUsername);
+            $(".login-form").css("display", "none");
+            $("header").css("display", "none");
+            $(".display-overview").css("display", "block");
+            $(".btn-overview").css("display", "block");
+            //$(".tble").css("display", "");
+
+            var channelNameT = storedUsername + "newTruth";
+            console.log(channelNameT);
+            var channelNameD = storedUsername + "newDare";
+        }
+
+        
+
+        var ably = new Ably.Realtime('WAxr4g.LV6bMQ:r-QxbY8rhBZ6e66q');
+        ably.connection.on('connected', function() {
+
+            console.log("That was simple, you're now connected to Ably in realtime");
+
+        });
+
+        var channel = ably.channels.get('truthordare');
+        // Subscribe to a new channel
+        channel.subscribe(channelNameT, function(message){
+            if(isInvitee){
+                $(".chats").append("<span class='u2 chat'>" + message.data + "<span />");
+                isInvitee = false;
+            }else{
+                $(".chats").append("<span class='u1 chat'>" + message.data + "<span />");
+            }
+            console.log(isInvitee);
+        });
+
+        $(".btnn-response").click(function(){
+
+            resp = $(".response-txt").val();
+            
+            if(resp){
+                publishTruth(resp);
+            }
+
+        });
+
+        channel.subscribe(channelNameD, function(message){
+            if(isInvitee){
+                $(".chats").append("<span class='u2 chat1'>" + message.data + "<span />");
+            }else{
+                $(".chats").append("<span class='u1 chat1'>" + message.data + "<span />");
+            }
+            console.log(isInvitee);
+        });
+
+
+        // Create a new channel
+
+        function publishTruth(message){
+            isInvitee = true;
+            var channel = ably.channels.get('truthordare');
+            // Send a message to a channel
+            channel.publish(channelNameT, message);
+        }
+
+        function publishDare(message){
+            isInvitee = true;
+            var channel = ably.channels.get('truthordare');
+            // Send a message to a channel
+            console.log(channelNameD);
+            channel.publish(channelNameD, message);
+        }
+
+        //publishMessage("hello");
+
+        // Function to read text file
+        function displayTruth(file){
+            var rawFile = new XMLHttpRequest();
+            rawFile.open("GET", file, false);
+            rawFile.onreadystatechange = function () {
+                if(rawFile.readyState === 4) {
+                    if(rawFile.status === 200 || rawFile.status == 0) {
+                        var allText = rawFile.responseText;
+                        // split by line break
+                        allTruths = allText.split('\n\n');
+                        // display the truth that has not been seen before
+                        index = Math.floor(Math.random(3)*4);
+                        //console.log(index)
+                        var truth = allTruths[index];
+                        //console.log(truth);
+                        publishTruth(truth);
+                    }
+                }
+            }
+            rawFile.send(null);
+        }
+
+        // Function to read text file
+        function displayDare(file){
+            var rawFile = new XMLHttpRequest();
+            rawFile.open("GET", file, false);
+            rawFile.onreadystatechange = function () {
+                if(rawFile.readyState === 4) {
+                    if(rawFile.status === 200 || rawFile.status == 0) {
+                        var allText = rawFile.responseText;
+                        // split by line break
+                        allDares = allText.split('\n\n');
+                        // display the truth that has not been seen before
+                        index = Math.floor(Math.random(3)*4);
+                        //console.log(index)
+                        var dare = allDares[index];
+                        //console.log(truth);
+                        publishDare(dare);
+                    }
+                }
+            }
+            rawFile.send(null);
+        }
+
+        // read data files
+        $(".truth").click(function(){
+            displayTruth("truthdata.txt");             
+        });
+
+        // read data files
+        $(".dare").click(function(){
+            displayDare("daredata.txt");             
+        });
+    </script>
+
+
+</html>
