@@ -20,13 +20,14 @@ console.log(agent_id);
 if(agent_id){
     Cookies.set('agent_id', agent_id);
     var rawFile = new XMLHttpRequest();
-    rawFile.open("GET", "agents.txt", false);
+    rawFile.open("GET", "https://raw.githubusercontent.com/Mcpaeis/PruFun/master/agents.txt", false);
     rawFile.onreadystatechange = function () {
         if(rawFile.readyState === 4) {
             if(rawFile.status === 200 || rawFile.status == 0) {
                 var allText = rawFile.responseText;
                 // split by line break
                 allTruths = allText.split('\n\n');
+                console.log(allTruths);
                 console.log('length: '+allTruths.length);
                 // display the truth that has not been seen before
                 // index = Math.floor(Math.random()*allTruths.length);

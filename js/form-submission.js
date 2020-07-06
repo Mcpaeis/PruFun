@@ -63,7 +63,6 @@
 
       txtEmailAddress = $("#txtEmailAddress").val();
       storedUsername = Cookies.get('username');
-    
 
       if(!validateEmail(txtEmailAddress)){
 
@@ -85,7 +84,7 @@
             var data = formData.data;
 
             console.log(data);
-            alert(response);
+            //alert(response)
         
             //disableAllButtons(form);
             var url = form.action;
