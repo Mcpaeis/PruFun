@@ -6,11 +6,13 @@
         $username = isset($_POST['txtUsername']) ? $_POST['txtUsername'] : 'User';
         $agentMail = "maccarthymaxwell74@gmail.com";
         $subject = "Smart Advisor";
-        $headers = 'From: prudentialsmartadvisor@gmail.com' . "\n\n" .  'Reply-To: maccarthymaxwell74@gmail.com';
+        $headers = 'From: prudentialsmartadvisor@gmail.com' . "\r\n" .  'Reply-To: maccarthymaxwell74@gmail.com';
         //$message1 = "This player expressed interest in exploring life insurance options. \n Username: " . $username . " \n Email Address: " . $email;
         $message2 = "Dear " . $username . "\n\n". "Thank you for trying Prufun and ultimately winning some coupons. Be rest assured of your pending Prize and we hope you will like it.\n\n";
-        $message2 .= "We are Prudential Life Insurance Ghana and I am here to serve you just right. \n Across Africa,  specifically in Ghana, we continue to support communities, encourage innovation and always honor our commitments.\nAs it stands, we would be happy to have you onboard as we take the ride to Insuring the best way.\n\n";
-        $message2 .= " Thank you for taking the time to read this email.\n\n\n ";
+        $message2 .= "We are Prudential Life Insurance Ghana and I am here to serve you just right.\n\n"; 
+        $message2 .= "Across Africa,  specifically in Ghana, we continue to support communities, encourage innovation and always honor our commitments.\n\n"; 
+        $message2 .= "As it stands, we would be happy to have you onboard as we take the ride to Insuring the best way.\n\n";
+        $message2 .= "Thank you for taking the time to read this email.\n\n\n ";
         $message2 .= "Cheers\n Maxwell Maccarthy\n PLIG Agency Force";
 
         /* Sends the mail and outputs the "Thank you" string if the mail is successfully sent, or the error string otherwise. */

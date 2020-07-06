@@ -6,10 +6,35 @@ var countdown = $("#countdown").countdown360({
     fontColor: '#FFFFFF',
     autostart: false,
     onComplete: function () {
+
+        audioElement.pause();
+        audioElement2.pause();
+        audioElement3.pause();
         displayWouldyouRather();
         countdown.start();
     }
 });
+
+var audioElement = document.createElement('audio');
+audioElement.setAttribute('src', '/audio/Harp 1.wav');
+
+audioElement.addEventListener('ended', function() {
+    this.play();
+}, false);
+
+var audioElement2 = document.createElement('audio');
+audioElement2.setAttribute('src', '/audio/Harp 3.wav');
+
+audioElement2.addEventListener('ended', function() {
+    this.play();
+}, false);
+
+var audioElement3 = document.createElement('audio');
+audioElement3.setAttribute('src', '/audio/Electrical_Sweep-Sweeper-1760111493.mp3');
+
+audioElement3.addEventListener('ended', function() {
+    this.play();
+}, false);
 
 /// Start timer in page load
 countdown.start();
@@ -21,10 +46,14 @@ $('#countdown').click(function() {
 
 /// listen to the button click events   
 $(".u-1").click(function(e){
+    audioElement2.pause();
+    audioElement.play();
     restart();
 });
 
 $(".u-2").click(function(e){
+    audioElement.pause();
+    audioElement2.play();
     restart();
 });
 
@@ -98,11 +127,14 @@ $( document ).ready(function() {
 // });
 
 function restart(){
-
     var checkEpq = parseInt($('.epq').text());
 
-    if(checkEpq==1){ // change back to 5
+    if(checkEpq==3){ // change back to 5
         // Redirect for reward
+        audioElement.pause();
+        audioElement2.pause();
+        audioElement3.play();
+        
         countdown.stop();
         $('#cover').css("display", "block");
         
@@ -110,7 +142,7 @@ function restart(){
 
     countdown.stop();
     index = Math.floor(Math.random(3)*5);
-    console.log(index);
+    //console.log(index);
 
     switch(index) {
         case 0:
@@ -147,22 +179,23 @@ function restart(){
 // Function to read text file
 function displayWouldyouRather(){
     var rawFile = new XMLHttpRequest();
-    rawFile.open("GET", "wouldyourather.txt", false);
+    rawFile.open("GET", "https://raw.githubusercontent.com/Mcpaeis/PruFun/master/wouldyourather.txt", false);
     rawFile.onreadystatechange = function () {
         if(rawFile.readyState === 4) {
             if(rawFile.status === 200 || rawFile.status == 0) {
                 var allText = rawFile.responseText;
                 // split by line break
-                allTruths = allText.split('\n');
-                console.log(allTruths.length);
+                allTruths = allText.split('\r\n');
+                //console.log(allTruths);
                 // display the truth that has not been seen before
-                index = Math.floor(Math.random()*39);
-                if( (index % 2 )==1 ){
-                    index  +=1
-                }
-                var truth = allTruths[index];
+                index = Math.floor(Math.random()*allTruths.length);
                 console.log(index);
-                console.log(truth);
+                // if( (index % 2 )==1 ){
+                //     index  +=1
+                // }
+                var truth = allTruths[index];
+                //console.log(index);
+                //console.log(truth);
                 // split into ywo
                 truth1  = truth.split('|')[0];
                 truth2  = truth.split('|')[1];
@@ -184,7 +217,7 @@ var myChart = new Chart(ctx, {
     data: {
         labels: [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
         datasets: [{
-            label: "Global Speed Line",
+            label: "We're running Models! Looking for that awesome recommendation!",
             data: data,
             backgroundColor: [
                 "rgba(255, 99, 132, 0.2)",

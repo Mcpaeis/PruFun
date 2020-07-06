@@ -14,49 +14,33 @@
         <link href="css/welcome.css" rel="stylesheet">
     </head>
     <body>
+        <section class="overlay">
+            <header>
+                <div class="welcome">We will make this quick and fun!</div> <br /><br />
+            </header>
 
-        <header>
-            <div class="welcome">We will make this quick and fun!</div> <br /><br />
-        </header>
-
-        <div class="hidden-background">
-            <img class="img-fluid" src="images/bg.jpeg" />
-        </div>
-        <section class="login-form">           
-            <form>
-                <div class="form-group form-group-1">
-                    <label for="">What name will you like to play with?</label>
-                  <input type="text" class="form-control" id="txtUsername" aria-describedby="emailHelp" placeholder="Username" maxlength="7"><br />
-                  <button type="button" class="btn btn-primary btn-next">Next</button>
-                </div>
-                <div class="form-group form-group-3"></div> <br />
-
-                <div class="form-group form-group-2" id="">
-                  <label for="">One last thing</label>
-                  <input type="text" class="form-control" id="txtEmailAddress" placeholder="Enter Email Address"><br />
-                  <button type="submit" id = "register-login" class="btn btn-primary btn-submit">Start Game</button>
-                </div>
-              </form>
-        </section>
-
-        <section class="display-overview">
-            <div class="display-board row">
-                
-                <div class="casing">
-                    <div class="window">
-                        <div class="header">Truth or Dare!</div>
-                        <div class="chats">
-                            <!--<span class="u1 chat">Hey sam, whats up?</span>
-                            <span class="u2 chat">nothing here how 'bout u?</span>-->
-                        </div>
-                
+            <!--<div class="hidden-background">
+                <img class="img-fluid" src="images/bg.jpeg" />
+            </div>-->
+            <section class="login-form">           
+                <form>
+                    <div class="form-group form-group-1">
+                        <label for="">What name will you like to play with?</label>
+                    <input type="text" class="form-control" id="txtUsername" aria-describedby="emailHelp" placeholder="Username" maxlength="30"><br />
+                    <button type="button" class="btn btn-primary btn-next">Next</button>
                     </div>
-                    <!--<div class="home-btn">
-                        <div class="hb-square"></div>
-                    </div>-->
-                </div>
+                    <div class="form-group form-group-3"></div> <br />
 
-            </div>
+                    <div class="form-group form-group-2" id="">
+                    <label for="">One last thing</label>
+                    <input type="text" class="form-control" id="txtEmailAddress" placeholder="Enter Email Address"><br />
+                    <button type="submit" id = "register-login" class="btn btn-primary btn-submit">Start Game</button>
+                    </div>
+                </form>
+            </section>
+        </section>
+        <section class="bg-content">
+            <img class="bg" src="images/bg3.jpeg" id = "whatsapp" />
         </section>
 
     </body>

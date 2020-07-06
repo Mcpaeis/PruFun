@@ -84,7 +84,7 @@
             var data = formData.data;
 
             console.log(data);
-            alert(response)
+            //alert(response)
         
             //disableAllButtons(form);
             var url = form.action;

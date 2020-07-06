@@ -32,31 +32,32 @@
 	<canvas id="myChart" width="300" height="100"></canvas>
 
 	<div class = "stat">
-		<span>Your EPQ</span> <br />
-		<span class="epq"> 0 </span> <br />
-		<span> Reach 5 EPQs + 1 to earn a reward!</span>
+		<span class="epq" style="display: none;"> 0 </span> <br />
+		<span> Play a little longer for better recommendations</span>
 	</div>
 
 
 	<div id="cover" >
 		
 		<div class="card text-white bg-success mb-3" style="max-width: 18rem;">
-			<div class="card-header">Congrats! 5 EPQs!</div>
+			<div class="card-header"> Robo-Advisor Done! </div>
 			<div class="card-body">
-				Prudential Insurance Gh Ltd will contact you to discuss further! <br /> <br />
+				<div class="intro">
+					Enter your email address to receive the detailed recomendation. <br /> Also, Prudential Insurance Gh Ltd will contact you to discuss further! <br /> <br />
+				</div>
 			  <p class="card-text">
 				  <form class="gform" method="POST" data-email="dakurahsixtus@gmail.com" action="https://script.google.com/macros/s/AKfycbwp_57F2l2VLriwzjkDjSf1GFpL_Qz44jgaNCqU1w/exec">
 						<input type="text" name="Email Address" id="txtEmailAddress" placeholder="Enter email address"> <br /><br />
-						<button class="btn btn-danger send-email">Claim Reward</button><br /> <br />
-						<button class="btn btn-outline-secondary ignore">Ignore</button>
-						<input type="hidden" class="hidden" name="Agent ID" id="agentEmail"  value="62smmo@gmail.com" /><br />
-						<input type="hidden" class="hidden" name="Lead Name" id="username"  value="Username" /><br />
-						<input type="hidden" class="hidden" name="Recommended Policy" id="policy"  value="Death Policy" /><br />
-						<input type="hidden" class="hidden" name="Interest Level" id="level"  value="Immediate Interest" /><br />
-						<input type="hidden" class="hidden" name="Status" id="status"  value="No Follow up" /><br />
-						<input type="hidden" class="hidden" name="Category" id="category"  value="m" /><br />
+						<button class="btn btn-danger send-email">Get Recommendation</button>
+						<input type="hidden" class="hidden" name="Agent ID" id="agentEmail"  value="maccarthymaxwell74@gmail.com" />
+						<input type="hidden" class="hidden" name="Lead Name" id="username"  value="Username" />
+						<input type="hidden" class="hidden" name="Recommended Policy" id="policy"  value="Death Policy" />
+						<input type="hidden" class="hidden" name="Interest Level" id="level"  value="Immediate Interest" />
+						<input type="hidden" class="hidden" name="Status" id="status"  value="No Follow up" />
+						<input type="hidden" class="hidden" name="Category" id="category"  value="m" />
 						<!-- Helps avoid spam -->
 				  </form> <br />
+				  <button class="btn btn-outline-secondary ignore">Ignore</button>
 				  
 				</p>
 			</div>
