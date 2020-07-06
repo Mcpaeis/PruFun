@@ -1,7 +1,7 @@
 /// Check if the user is already logged in:
 var storedUsername = Cookies.get('username');
 // https://sixtusdakurah.com/truthordare/welcome.html
-!storedUsername ? window.location.replace("/prufun/index.html") : $('.username').append(storedUsername);
+!storedUsername ? window.location.replace("/prufun/index.html") : $('.username').append('Welcome, '+storedUsername);
 
 function welcomeCallback() {
     setTimeout(function() {

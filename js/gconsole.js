@@ -1,8 +1,4 @@
-function validateEmail(email) {
-    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLowerCase());
-}
-
+/// Count down timer
 var countdown = $("#countdown").countdown360({
     radius: 50,
     seconds: 7,
@@ -15,14 +11,15 @@ var countdown = $("#countdown").countdown360({
     }
 });
 
+/// Start timer in page load
 countdown.start();
 
+/// Extend time by 2 seconds on click
 $('#countdown').click(function() {
     countdown.extendTimer(2);
 });
 
-// listen to the button click events
-
+/// listen to the button click events   
 $(".u-1").click(function(e){
     restart();
 });
@@ -31,53 +28,80 @@ $(".u-2").click(function(e){
     restart();
 });
 
-// listen to the ignore reward event
+/// listen to the ignore reward event
 $('.ignore').click(function(){
     window.location.reload();
     $('#cover').css("display", "none");
 });
 
-// listen to the get reward event
-$('.send-email').click(function(){
+/// Set username hidden value
 
-        txtEmailAddress = $("#txtEmailAddress").val();
-        storedUsername = Cookies.get('username');
+/// Check if agent reference is set and set values of hidden text
+$( document ).ready(function() {
 
-        if(!validateEmail(txtEmailAddress)){
-            alert('Invalid Email Address');
-            // $.toast({
-            //     text: 'Invalid Email Address',
-            //     allowToastClose: false,
-            //     textAlign: 'center',
-            //     textColor: 'red'
-            // })
-        }else{
-            request  = $.ajax({
-                url: "/prufun/email.php",
-                type: "post",
-                data: { 'sendAgentEmail': 'yes', 'txtEmail': txtEmailAddress,  'txtUsername': storedUsername}
-            });
+    $("#username").val(Cookies.get("username"));
 
-            request.done(function(response, textStatus, jqXHR){
-                alert("Thank you! You'll be contacted shortly by an agent.");
-                Cookies.set("wouldyourather", "yes");
-                window.location.reload();
-                $('#cover').css("display", "none");
-             });
+    /// Pick the policy choice randomly
+    var policyChoices = [ "Pruwealth",  "Prudent Life", "Farewell Plan", "Education Policy", "Annuity"];
+    choiceIndex =  Math.floor(Math.random()*policyChoices.length);
+    console.log("c index", choiceIndex);
+    $("#policy").val(policyChoices[choiceIndex]);
 
-            request.fail(function(response, textStatus, jqXHR){
-                 console.log(response);
-            });
-            
-        }
+    /// Pick the interest level randomly
+    var interestLevel = ['Immediate Interest', 'Fairly Interested', 'Probably not interested'];
+    interestIndex = Math.floor(Math.random()*interestLevel.length);
+    $("#level").val(interestLevel[interestIndex]);
 
+    var agentEmail = Cookies.get("agent_email");
+    console.log("agent email", agentEmail);
+    var agentType = Cookies.get("agent_type");
+    console.log("agent type", agentType);
+    // Handler for .ready() called.
+    !agentEmail ? null : $("#agentEmail").val(agentEmail);
+    !agentEmail ? null : $(".gform").attr('data-email', agentEmail);
+    !agentType ? null : $("#category").val(agentType);
+  
 });
+
+
+
+// /listen to the get reward event
+// $('.send-email').click(function(){
+
+//         txtEmailAddress = $("#txtEmailAddress").val();
+//         storedUsername = Cookies.get('username');
+
+//         if(!validateEmail(txtEmailAddress)){
+
+//             alert('Invalid Email Address');
+
+//         }else{
+//             request  = $.ajax({
+//                 url: "/prufun/email.php",
+//                 type: "post",
+//                 data: { 'sendAgentEmail': 'yes', 'txtEmail': txtEmailAddress,  'txtUsername': storedUsername}
+//             });
+
+//             request.done(function(response, textStatus, jqXHR){
+//                 alert("Thank you! You'll be contacted shortly by an agent.");
+//                 Cookies.set("wouldyourather", "yes");
+//                 window.location.reload();
+//                 $('#cover').css("display", "none");
+//              });
+
+//             request.fail(function(response, textStatus, jqXHR){
+//                  console.log(response);
+//             });
+            
+//         }
+
+// });
 
 function restart(){
 
     var checkEpq = parseInt($('.epq').text());
 
-    if(checkEpq==5){
+    if(checkEpq==1){ // change back to 5
         // Redirect for reward
         countdown.stop();
         $('#cover').css("display", "block");

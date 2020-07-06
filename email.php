@@ -5,8 +5,8 @@
         $email = isset($_POST['txtEmail']) ? $_POST['txtEmail'] : 'error';
         $username = isset($_POST['txtUsername']) ? $_POST['txtUsername'] : 'User';
         $agentMail = "maccarthymaxwell74@gmail.com";
-        $subject = "PruFun";
-        $headers = 'From: webmaster@example.com' . "\r\n" .  'Reply-To: webmaster@example.com';
+        $subject = "Smart Advisor";
+        $headers = 'From: prudentialsmartadvisor@gmail.com' . "\n\n" .  'Reply-To: ';
         $message1 = "This player expressed interest in exploring life insurance options. \n Username: " . $username . " \n Email Address: " . $email;
         $message2 = "Dear " . $username . " \n\n Thank you for trying Prufun and ultimately winning some coupons. Be rest assured of your pending Prize and we hope you will like it.";
         $message2 .= "\n\n We are Prudential Life Insurance Ghana and I am here to serve you just right. \n Across Africa,  specifically in Ghana, we continue to support communities, encourage innovation and always honor our commitments.\nAs it stands, we would be happy to have you onboard as we take the ride to Insuring the best way.";
@@ -14,18 +14,18 @@
         $message2 .= "\n\n\n Cheers\n Maxwell Maccarthy\n PLIG Agency Force";
 
         /* Sends the mail and outputs the "Thank you" string if the mail is successfully sent, or the error string otherwise. */
-        if (mail($agentMail, $subject, $message1, $headers)) {
+        // if (mail($agentMail, $subject, $message1, $headers)) {
 
-            print("success agent");
+        //     print("success agent");
 
-        } else {
+        // } else {
 
-            print("failure agent");
-        }
+        //     print("failure agent");
+        // }
 
         if (mail($email, $subject, $message2, $headers)) {
 
-            print("success");
+            print($email);
 
         } else {
 

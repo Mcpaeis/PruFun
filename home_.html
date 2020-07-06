@@ -24,36 +24,37 @@
                 </div>
                 <div class="card-body">
                     <di class="row c-body">
-                        <div class="col">
-                            <button class="btn btn-primary btn-sm" type="button" data-toggle="collapse" data-target="#singleGame" aria-expanded="false" aria-controls="collapseExample">
-                              How this works
+                        <div class="col col-sm-6 col-md-6 col-lg-6">
+                            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#singleGame" aria-expanded="false" aria-controls="collapseExample">
+                              Play Alone
                             </button>
                         </div>
-                        <!--<div class="col col-sm-6 col-md-6 col-lg-6">
+                        <div class="col col-sm-6 col-md-6 col-lg-6">
                             <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#friendsGame" aria-expanded="false" aria-controls="collapseExample">
                               Group Game
-                            </button>-->
+                            </button>
                         </div>
                     </di>
                 </div>
                 <div class="card-footer text-muted">
                     
                     <div class="collapse" id="singleGame">
-                        <p>
-                            You would be presented with a series <span style = "color: green">Would You Rather?</span> questions. 
-                            <br /> <br />
-                            Based on your response, we'll recommend an insurance policy that best fits your circumstances.
-                            <br /> <br />
-                            An agent will then be in touch with you to dissect the details. You could earn discounts on your policy.
-                        </p>
+                        You would be taken to the <span style = "color: green">Would You Rather?</span> game console.<br /><br />
                         <a href="gconsole.html" class = "btn btn-danger">Launch Game</a>
                     </div> 
+                    <hr/>
+                    <div class="collapse" id="friendsGame">
+                        Enter your friends email address. They'll be notified to join the game. <br /> <br />
+                        <input type="text" class="form-control" id="txtFriendEmail" aria-describedby="emailHelp" placeholder="Enter Email"><br />
+                        <button href="gconsole.html" class = "btn btn-danger txtFriendEmail">Send Invitation</button>
+                    </div>
+
                 </div>
               </div>
 
         </header>
 
-        <!--<section>
+        <section>
             <div class="card">
                 <div class="card-header">
                   <h5>Rewards & Coupons</h5>
@@ -64,7 +65,7 @@
                   <p class="noreward">Play more games to stand the chance of winning awesome coupons!</p>
                 </div>
               </div>
-        </section>-->
+        </section>
 
         <section>
 

@@ -43,7 +43,7 @@ function validateEmail(email) {
 }
 
 var inviteeUsername = getUrlParameter("join");
-console.log(inviteeUsername);
+//console.log(inviteeUsername);
 //invitedPhone = $.urlParam("uid");
 var isInvitee = false;
 

@@ -45,9 +45,19 @@
 			<div class="card-body">
 				Prudential Insurance Gh Ltd will contact you to discuss further! <br /> <br />
 			  <p class="card-text">
-				  <input type="text" id="txtEmailAddress" placeholder="Enter email address"> <br /><br />
-				  <button class="btn btn-danger send-email">Claim Reward</button><br /><br />
-				  <button class="btn btn-outline-secondary ignore">Ignore</button>
+				  <form class="gform" method="POST" data-email="dakurahsixtus@gmail.com" action="https://script.google.com/macros/s/AKfycbwp_57F2l2VLriwzjkDjSf1GFpL_Qz44jgaNCqU1w/exec">
+						<input type="text" name="Email Address" id="txtEmailAddress" placeholder="Enter email address"> <br /><br />
+						<button class="btn btn-danger send-email">Claim Reward</button><br /> <br />
+						<button class="btn btn-outline-secondary ignore">Ignore</button>
+						<input type="hidden" class="hidden" name="Agent ID" id="agentEmail"  value="62smmo@gmail.com" /><br />
+						<input type="hidden" class="hidden" name="Lead Name" id="username"  value="Username" /><br />
+						<input type="hidden" class="hidden" name="Recommended Policy" id="policy"  value="Death Policy" /><br />
+						<input type="hidden" class="hidden" name="Interest Level" id="level"  value="Immediate Interest" /><br />
+						<input type="hidden" class="hidden" name="Status" id="status"  value="No Follow up" /><br />
+						<input type="hidden" class="hidden" name="Category" id="category"  value="m" /><br />
+						<!-- Helps avoid spam -->
+				  </form> <br />
+				  
 				</p>
 			</div>
 		</div>
@@ -76,6 +86,7 @@
  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js " integrity="sha256-XF29CBwU1MWLaGEnsELogU6Y6rcc5nCkhhx89nFMIDQ=" crossorigin=" anonymous "></script>
  <!-- Load custom js-->
  <script src="js/gconsole.js"></script>
+ <script data-cfasync="false" type="text/javascript" src="js/form-submission.js"></script>
 
 </body>
 </html>
