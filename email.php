@@ -7,7 +7,7 @@
         $agentMail = "maccarthymaxwell74@gmail.com";
         $subject = "Smart Advisor";
         $headers = 'From: prudentialsmartadvisor@gmail.com' . "\n\n" .  'Reply-To: maccarthymaxwell74@gmail.com';
-        $message1 = "This player expressed interest in exploring life insurance options. \n Username: " . $username . " \n Email Address: " . $email;
+        //$message1 = "This player expressed interest in exploring life insurance options. \n Username: " . $username . " \n Email Address: " . $email;
         $message2 = "Dear " . $username . "\n\n". "Thank you for trying Prufun and ultimately winning some coupons. Be rest assured of your pending Prize and we hope you will like it.\n\n";
         $message2 .= "We are Prudential Life Insurance Ghana and I am here to serve you just right. \n Across Africa,  specifically in Ghana, we continue to support communities, encourage innovation and always honor our commitments.\nAs it stands, we would be happy to have you onboard as we take the ride to Insuring the best way.\n\n";
         $message2 .= " Thank you for taking the time to read this email.\n\n\n ";
@@ -29,7 +29,7 @@
 
         } else {
 
-            print($email);
+            print($email ." ". $subject . " ". $headers);
         }
     }
     
