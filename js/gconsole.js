@@ -16,21 +16,21 @@ var countdown = $("#countdown").countdown360({
 });
 
 var audioElement = document.createElement('audio');
-audioElement.setAttribute('src', '/audio/Harp 1.wav');
+audioElement.setAttribute('src', 'https://sixtusdakurah.com/prufun/audio/Harp 1.wav');
 
 audioElement.addEventListener('ended', function() {
     this.play();
 }, false);
 
 var audioElement2 = document.createElement('audio');
-audioElement2.setAttribute('src', '/audio/Harp 3.wav');
+audioElement2.setAttribute('src', 'https://sixtusdakurah.com/prufun/audio/Harp 3.wav');
 
 audioElement2.addEventListener('ended', function() {
     this.play();
 }, false);
 
 var audioElement3 = document.createElement('audio');
-audioElement3.setAttribute('src', '/audio/Electrical_Sweep-Sweeper-1760111493.mp3');
+audioElement3.setAttribute('src', 'https://sixtusdakurah.com/prufun/audio/Electrical_Sweep-Sweeper-1760111493.mp3');
 
 audioElement3.addEventListener('ended', function() {
     this.play();
@@ -71,7 +71,7 @@ $( document ).ready(function() {
     $("#username").val(Cookies.get("username"));
 
     /// Pick the policy choice randomly
-    var policyChoices = [ "Pruwealth",  "Prudent Life", "Farewell Plan", "Education Policy", "Annuity"];
+    var policyChoices = [ "Pruwealth",  "Prudent Life", "Farewell Plan", "Education Policy"];
     choiceIndex =  Math.floor(Math.random()*policyChoices.length);
     console.log("c index", choiceIndex);
     $("#policy").val(policyChoices[choiceIndex]);
@@ -129,7 +129,7 @@ $( document ).ready(function() {
 function restart(){
     var checkEpq = parseInt($('.epq').text());
 
-    if(checkEpq==3){ // change back to 5
+    if(checkEpq==2){ // change back to 5
         // Redirect for reward
         audioElement.pause();
         audioElement2.pause();

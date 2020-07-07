@@ -82,4 +82,4 @@ $('.button-1').click(function(){
     window.location.replace("/prufun/welcome.html");
 });
 
-$('a').attr('href',"https://api.whatsapp.com/send?phone=14132754347");
+$('a').attr('href',"https://api.whatsapp.com/send?phone=2335450527");
