@@ -1,2 +1,2 @@
-# PruFun
+# SamrtAvisor
 Prudential Innovation Challenge
