@@ -1,2 +1,2 @@
-# SmartAvisor
+# Smart Avisor
 Prudential Innovation Challenge
