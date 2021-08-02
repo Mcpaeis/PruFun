@@ -8,8 +8,8 @@
 
     // Find your Account Sid and Auth Token at twilio.com/console
     // DANGER! This is insecure. See http://twil.io/secure
-    $sid    = "ACf2c2413ca40d9c906a7e030487f3c2c6";
-    $token  = "b5dac13ab3c2e0f253396caed44de088";
+    $sid    = "";
+    $token  = "";
     $twilio = new Client($sid, $token);
 
     $phone = isset($_POST['txtPhoneNumber']) ? $_POST['txtPhoneNumber'] : null;
